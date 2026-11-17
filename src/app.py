@@ -1,7 +1,15 @@
 """Main entrypoint for the WalletAnalyze Streamlit application."""
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path regardless of how Streamlit or Python was invoked
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 import streamlit as st
 import pandas as pd
-from config.settings import settings
+from src.config.settings import settings
 from src.data.loader import load_dataset
 from src.analytics.metrics import compute_kpis, compute_monthly_summary, compute_cumulative_balance
 from src.components.ui import render_sidebar_filters, render_kpi_cards

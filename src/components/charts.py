@@ -2,7 +2,7 @@
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from config.settings import settings
+from src.config.settings import settings
 
 
 def plot_monthly_cashflow(monthly_df: pd.DataFrame) -> go.Figure:
